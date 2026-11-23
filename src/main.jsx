@@ -21,6 +21,7 @@ function Home({ setPage }) {
         <button className="story-link" onClick={() => setPage('story')}><span className="story-link-icon">✦</span><span><b>Who is Aesha, as far as I know?</b><small>A little portrait of the person you are becoming</small></span><span className="story-link-arrow">↗</span></button>
         <button className="story-link care-link" onClick={() => setPage('reassurance')}><span className="story-link-icon">♡</span><span><b>Bov chinta nai krti</b><small>A little reminder that I’m always in your corner</small></span><span className="story-link-arrow">↗</span></button>
         <button className="story-link world-link" onClick={() => setPage('world')}><span className="story-link-icon">✈</span><span><b>A thing which I want to tell</b><small>A little note about the time we’ve shared</small></span><span className="story-link-arrow">↗</span></button>
+        <button className="story-link final-wish-home-link" onClick={() => setPage('birthday')}><span className="story-link-icon">🎂</span><span><b>A birthday wish, just for you</b><small>Open Sha’s special birthday card</small></span><span className="story-link-arrow">↗</span></button>
         <p className="tiny-note">best experienced with the sound on <span>♪</span></p>
       </div>
       <div className="hero-art" aria-label="An illustrated sunset with a train and an airplane">
@@ -144,9 +145,28 @@ function WorldNote({ setPage }) {
   </main>;
 }
 
+function BirthdayWishPage({ setPage }) {
+  const [wished, setWished] = useState(false);
+  return <main className="birthday-page">
+    <div className="birthday-page-topline"><button className="back-link" onClick={() => setPage('home')}>← back to the journey</button><span>MADE ESPECIALLY FOR AESHA</span><span>✦ 23 · A LITTLE CELEBRATION ✦</span></div>
+    <section className={`birthday-stage ${wished ? 'birthday-stage-wished' : ''}`}>
+      <div className="birthday-stage-stars" aria-hidden="true">✦　　　　·　　　✧　　　　　✦　　　·　　　✧</div>
+      <div className="birthday-stage-orbit birthday-stage-orbit-a"/><div className="birthday-stage-orbit birthday-stage-orbit-b"/>
+      <div className="birthday-stage-content">
+        <p className="eyebrow">{wished ? 'TODAY IS ALL ABOUT YOU' : 'A LITTLE BIRTHDAY MOMENT'}</p>
+        <div className="birthday-stage-cake" aria-hidden="true"><span>✦</span><i/><b/></div>
+        <h1>{wished ? <>Happiest birthday,<br /><em>Sha!</em></> : <>There’s a wish<br />waiting for <em>you.</em></>}</h1>
+        {!wished ? <><p className="birthday-stage-intro">A small card, with a very big amount of love.</p><button className="button button-primary birthday-open-button" onClick={() => setWished(true)}>Wish me a happy birthday <span>♡</span></button></> : <div className="birthday-revealed-wish" role="status" aria-live="polite"><p>Stay Always blessed and HAPPY</p><p>HAVE BRIGHT FUTURE</p><p>i will always with you in any situations</p><div className="birthday-day-message">its aesha day <b>♡</b><br />make it more beautiful with your smile</div><div className="birthday-hug" aria-label="A warm hug">🫂</div><div className="birthday-wish-sparkle" aria-hidden="true">✧　✦　♡　✦　✧</div></div>}
+        {wished && <button className="button button-quiet birthday-back-button" onClick={() => { setWished(false); }}>Read it again <span>↺</span></button>}
+      </div>
+    </section>
+    <footer className="site-footer"><span>FOR EVERY SMILE YOU SHARE <b>♥</b></span><span>HAPPIEST BIRTHDAY, AESHA <b>✦</b></span></footer>
+  </main>;
+}
+
 function App() {
   const [page, setPage] = useState('home');
-  return <><div className="grain" /><div className="sky-glow glow-one" /><div className="sky-glow glow-two" /><div className="site-shell"><Header page={page} setPage={setPage} />{page === 'home' ? <Home setPage={setPage} /> : page === 'story' ? <Story setPage={setPage} /> : page === 'reassurance' ? <Reassurance setPage={setPage} /> : page === 'world' ? <WorldNote setPage={setPage} /> : <Journey setPage={setPage} />}</div></>;
+  return <><div className="grain" /><div className="sky-glow glow-one" /><div className="sky-glow glow-two" /><div className="site-shell"><Header page={page} setPage={setPage} />{page === 'home' ? <Home setPage={setPage} /> : page === 'story' ? <Story setPage={setPage} /> : page === 'reassurance' ? <Reassurance setPage={setPage} /> : page === 'world' ? <WorldNote setPage={setPage} /> : page === 'birthday' ? <BirthdayWishPage setPage={setPage} /> : <Journey setPage={setPage} />}</div></>;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
