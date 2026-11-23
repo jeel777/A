@@ -80,7 +80,7 @@ function Reassurance({ setPage }) {
       <h1>Bov chinta<br /><em>nai krti.</em></h1>
       <p className="care-subtitle">A little something to remember, on every kind of day.</p>
       <div className="care-note"><span className="care-note-mark">“</span>{lines.map((line, index) => <p key={index}>{line}</p>)}<span className="care-note-sign">— always cheering for you, Sha <b>♡</b></span></div>
-      {!revealed ? <button className="button button-primary care-reveal" onClick={() => setRevealed(true)}>One more thing… <span>♡</span></button> : <div className="big-promise" role="status" aria-live="polite"><span className="hug-emoji" aria-hidden="true">🫂</span><p>I ALWAYS BE THE LOUDEST PERSON<br />TO MAKE CLAP FOR YOU<br />ON YOUR SUCCESS.</p><span className="promise-spark">✦ &nbsp; ♡ &nbsp; ✦</span></div>}
+      {!revealed ? <button className="button button-primary care-reveal" onClick={() => setRevealed(true)}>One more thing… <span>♡</span></button> : <div className="big-promise" role="status" aria-live="polite"><p>I ALWAYS BE THE LOUDEST PERSON<br />TO MAKE CLAP FOR YOU<br />ON YOUR SUCCESS.</p><span className="promise-spark">✦ &nbsp; ♡ &nbsp; ✦</span></div>}
     </section>
     <div className="care-bottom"><span>NO MATTER HOW BIG THE DREAM</span><span>YOU DON’T HAVE TO DO IT ALONE <b>♡</b></span></div>
     <footer className="site-footer"><span>HERE FOR EVERY VERSION OF YOU <b>♥</b></span><span>ALWAYS, SHA <b>✦</b></span></footer>
@@ -156,7 +156,7 @@ function BirthdayWishPage({ setPage }) {
         <p className="eyebrow">{wished ? 'TODAY IS ALL ABOUT YOU' : 'A LITTLE BIRTHDAY MOMENT'}</p>
         <div className="birthday-stage-cake" aria-hidden="true"><span>✦</span><i/><b/></div>
         <h1>{wished ? <>Happiest birthday,<br /><em>Sha!</em></> : <>There’s a wish<br />waiting for <em>you.</em></>}</h1>
-        {!wished ? <><p className="birthday-stage-intro">A small card, with a very big amount of love.</p><button className="button button-primary birthday-open-button" onClick={() => setWished(true)}>Wish me a happy birthday <span>♡</span></button></> : <div className="birthday-revealed-wish" role="status" aria-live="polite"><p>Stay Always blessed and HAPPY</p><p>HAVE BRIGHT FUTURE</p><p>i will always with you in any situations</p><div className="birthday-day-message">its aesha day <b>♡</b><br />make it more beautiful with your smile</div><div className="birthday-hug" aria-label="A warm hug">🫂</div><div className="birthday-wish-sparkle" aria-hidden="true">✧　✦　♡　✦　✧</div></div>}
+        {!wished ? <><p className="birthday-stage-intro">A small card, with a very big amount of love.</p><button className="button button-primary birthday-open-button" onClick={() => setWished(true)}>Wish me a happy birthday <span>♡</span></button></> : <div className="birthday-revealed-wish" role="status" aria-live="polite"><p>Stay Always blessed and HAPPY</p><p>HAVE BRIGHT FUTURE</p><p>i will always with you in any situations</p><div className="birthday-day-message">its aesha day <b>♡</b><br />make it more beautiful with your smile</div><div className="birthday-wish-sparkle" aria-hidden="true">✧　✦　♡　✦　✧</div></div>}
         {wished && <button className="button button-quiet birthday-back-button" onClick={() => { setWished(false); }}>Read it again <span>↺</span></button>}
       </div>
     </section>
